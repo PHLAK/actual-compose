@@ -1,10 +1,8 @@
 services:
-  
+
   actual:
     image: docker.io/actualbudget/actual-server:${ACTUAL_VERSION:-latest}
     env_file: environment.d/actual.env
-    # environment:
-    #   ...
     ports:
       - ${ACTUAL_PORT:-5006}:5006
     volumes:
@@ -27,6 +25,6 @@ services:
     labels:
       com.centurylinklabs.watchtower.scope: ${COMPOSE_PROJECT_NAME}
     restart: unless-stopped
-    
+
 volumes:
   actual-data: {}
